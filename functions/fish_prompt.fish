@@ -38,12 +38,10 @@ function __git_status
 end
 
 function __ruby_version
-  if type "rvm-prompt" > /dev/null 2>&1
-    set ruby_version (rvm-prompt i v g)
-  else if type "rbenv" > /dev/null 2>&1
-    set ruby_version (rbenv version-name)
+  if type "php" > /dev/null 2>&1
+    set ruby_version (php -v | head -c 9)
   else
-    set ruby_version "system"
+    set ruby_version "system bro"
   end
 
   echo -n (set_color red) ‹$ruby_version› (set_color normal)
